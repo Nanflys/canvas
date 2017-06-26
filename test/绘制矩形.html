@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制矩形</title>
+	<style>
+		.box{
+			width:1000px;
+			height:800px;
+			margin:50px auto;
+		}
+	</style>
+</head>
+<body>
+	<section class="box">
+		<canvas id="drawing" width="400" height="400">A drawing of something.</canvas>
+	</section>
+	<script>
+		var drawing = document.getElementById('drawing');
+
+
+		if(drawing.getContext){
+			var context = drawing.getContext("2d");
+			// console.log(context)
+			context.fillStyle = '#ff0000';
+			context.fillRect(20,20,100,100);
+
+			context.fillStyle = 'rgba(0,0,255,.5)';
+			context.fillRect(60,60,100,100);
+		}
+	</script>
+</body>
+</html>

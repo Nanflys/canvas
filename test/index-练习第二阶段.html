@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>练习2</title>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		#canvas{
+			background:#fff;
+			color:#fff;
+		}
+	</style>
+</head>
+<body style="background:#000">
+	<canvas id="canvas" >你的浏览器太LOW了</canvas>
+	<script>
+		var canvas = document.getElementById('canvas');
+		var oC = document.querySelector('#canvas');
+		var oGc = oC.getContext('2d');
+
+		console.log(window.innerWidth)
+		console.log(window.innerHeight)
+		var w = window.innerWidth;
+		var h = window.innerHeight;
+		canvas.width = w;
+		canvas.height = h;
+
+//--------------------------回顾基础---------------------------------
+
+		// oGc.fillRect(100,100,200,200);	//填充矩形
+		// oGc.strokeRect(100,100,200,200)		//填充边框
+		// oGc.clearRect(100,100,100,100)
+
+//---------------------------绘制直线-----------------------------------------
+
+		// oGc.beginPath();
+		// oGc.moveTo(100,100);
+		// oGc.lineTo(300,300);
+		// oGc.stroke();
+		// oGc.closePath();
+
+
+//----------------------------绘制圆形------------------------------------
+
+			// oGc.beginPath();
+			// oGc.arc(100,100,50,0*Math.PI/180,360*Math.PI/180)
+			// oGc.stroke();
+			// oGc.closePath();
+
+			oC.onmousemove = function(e){
+				var x = e.pageX;
+				var y = e.pageY;
+				console.log(x,y)
+				oGc.beginPath();
+				oGc.arc(x,y,10,0*Math.PI/180,360*Math.PI/180)
+				oGc.stroke();
+				oGc.closePath();
+			}
+
+
+//--------------------------绘制弧形--------------------------------
+
+			// oGc.beginPath();
+			// oGc.moveTo(100,300);
+			// // oGc.lineTo(100,200);
+			// oGc.arcTo(200,300,200,200,100);
+			// oGc.stroke();
+			// oGc.closePath();
+
+//-----------------------绘制三角形---------------------------------
+
+				// oGc.beginPath();
+				// oGc.moveTo(300,100);
+				// oGc.lineTo(100,400);
+				// oGc.lineTo(500,400);
+				// // oGc.fill();
+				// oGc.closePath();
+				// oGc.stroke();
+
+//---------------------设置样式------------------------------------
+
+			// oGc.fillStyle = 'red';
+			// oGc.fillRect(200,200,400,400);
+
+
+//-------------------绘制圆形-------------------------------------
+
+			// oGc.moveTo(200,200);
+			// oGc.arc(200,200,150,0*Math.PI/180,90*Math.PI/180);
+			// oGc.closePath();
+			// oGc.stroke();
+
+
+//-----------------------绘制钟表--------------------------------------
+
+
+			// function toDraw(){
+			// 	var x = 400;
+			// 	var y = 400;
+			// 	var r = 200;
+
+			// 	oGc.clearRect(0,0,oGc.width,oGc.height);
+
+			// 	var oDate = new Date();
+			// 	var oHours = oDate.getHours();
+			// 	var oMin = oDate.getMinutes();
+			// 	var oSec = oDate.getSeconds();
+
+			// 	var oHoursValue = (-90 + oHours*30 + oMin/2)*Math.PI/180;
+			// 	var oMinValue = (-90 + oMin*6)*Math.PI/180;
+			// 	var oSecValue = (-90 + oSec*6)*Math.PI/180;
+
+
+
+			// 	oGc.beginPath();
+			// 	for (var i = 0; i < 60; i++) {
+			// 		oGc.moveTo(x,y);
+			// 		oGc.arc(x,y,r,6*i*Math.PI/180,6*(i+1)*Math.PI/180);
+			// 	}
+			// 	oGc.closePath();
+			// 	oGc.stroke();
+
+
+			// 	oGc.beginPath();
+			// 	oGc.fillStyle = '#fff';
+			// 	oGc.moveTo(x,y);
+			// 	oGc.arc(x,y,r*19/20,0,360*Math.PI/180);
+			// 	oGc.closePath();
+			// 	oGc.fill();
+
+
+			// 	oGc.beginPath();
+			// 	oGc.lineWidth = 3;
+			// 	for (var i = 0; i < 12; i++) {
+			// 		oGc.moveTo(x,y);
+			// 		oGc.arc(x,y,r,30*i*Math.PI/180,30*(i+1)*Math.PI/180);
+			// 	}
+			// 	oGc.closePath();
+			// 	oGc.stroke();
+
+
+			// 	oGc.beginPath();
+			// 	oGc.fillStyle = '#fff';
+			// 	oGc.moveTo(x,y);
+			// 	oGc.arc(x,y,r*16/20,0,360*Math.PI/180);
+			// 	oGc.closePath();
+			// 	oGc.fill();
+
+			// 	oGc.beginPath();
+			// 	oGc.lineWidth = 5;
+			// 	oGc.moveTo(x,y);
+			// 	oGc.arc(x,y,r*10/20,oHoursValue,oHoursValue,false);
+			// 	oGc.closePath();
+			// 	oGc.stroke();
+
+
+			// 	oGc.beginPath();
+			// 	oGc.lineWidth = 3;
+			// 	oGc.moveTo(x,y);
+			// 	oGc.arc(x,y,r*14/20,oMinValue,oMinValue,false);
+			// 	oGc.closePath();
+			// 	oGc.stroke();
+
+
+			// 	oGc.beginPath();
+			// 	oGc.lineWidth = 1;
+			// 	oGc.moveTo(x,y);
+			// 	oGc.arc(x,y,r*19/20,oSecValue,oSecValue,false);
+			// 	oGc.closePath();
+			// 	oGc.stroke();
+			// }
+			// setInterval(toDraw,1000)
+
+
+//--------------------各种变换---------------------------------
+
+			// oGc.translate(100,100);
+			// oGc.rotate(30*Math.PI/180);
+			// oGc.scale(2,2);
+			// oGc.fillRect(0,0,200,200);
+
+
+
+//------------------------旋转的小方块-----------------------
+
+			// var n = 0;
+
+			// setInterval(function(){
+			// 	n++;
+			// 	oGc.save();
+			// 	oGc.clearRect(0,0,oC.width,oC.height);
+			// 	oGc.translate(400,400);
+			// 	oGc.rotate(n * (Math.PI/180));
+			// 	oGc.translate(-100,-100);
+			// 	oGc.strokeRect(0,0,200,200);
+			// 	oGc.restore();
+			// },30)
+
+//-------------------------绘制渐变--------------------------------
+
+			// var obj = oGc.createLinearGradient(360,360,380,380);
+
+			// obj.addColorStop(0,'black');
+			// obj.addColorStop(1,'white');
+
+			// oGc.fillStyle = obj;
+
+			// oGc.fillRect(200,200,400,400);
+			
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>
